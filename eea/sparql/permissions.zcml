@@ -1,0 +1,18 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:zcml="http://namespaces.zope.org/zcml"
+  i18n_domain="eea">
+
+  <permission
+    id="eea.sparql.add"
+    title="eea.sparql: Add Sparql"
+    description="Add Sparql"
+    />
+
+  <permission
+    id="eea.sparql.bookmarksfolder.add"
+    title="eea.sparql: Add Sparql Bookmarks Folder"
+    description="Add Sparql Bookmarks Folder"
+    />
+
+</configure>

@@ -1,0 +1,5 @@
+<configure
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  i18n_domain="eea">
+
+</configure>

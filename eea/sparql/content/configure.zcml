@@ -1,0 +1,31 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:five="http://namespaces.zope.org/five"
+  xmlns:zcml="http://namespaces.zope.org/zcml"
+  i18n_domain="eea.sparql">
+
+    <subscriber
+        for="eea.sparql.interfaces.ISparqlBookmarksFolder
+             eea.sparql.interfaces.ISparqlBookmarksFolderAdded"
+        handler=".events.bookmarksfolder_added"
+    />
+
+    <subscriber
+        for="eea.sparql.interfaces.ISparql
+             zope.lifecycleevent.IObjectCreatedEvent"
+        handler=".events.sparql_added_or_modified"
+    />
+
+    <subscriber
+        for="eea.sparql.interfaces.ISparql
+             zope.lifecycleevent.IObjectModifiedEvent"
+        handler=".events.sparql_added_or_modified"
+    />
+
+    <subscriber
+        for="eea.sparql.interfaces.ISparql
+             zope.lifecycleevent.IObjectModifiedEvent"
+        handler=".events.sparql_modified"
+    />
+
+</configure>
