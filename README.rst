@@ -1,5 +1,5 @@
 ==========
-EEA Sparql
+EEA Dexterity Sparql
 ==========
 .. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.dexterity.sparql/develop
   :target: https://ci.eionet.europa.eu/job/eea/job/eea.dexterity.sparql/job/develop/display/redirect
@@ -8,7 +8,7 @@ EEA Sparql
   :target: https://ci.eionet.europa.eu/job/eea/job/eea.dexterity.sparql/job/master/display/redirect
   :alt: master
 
-EEA Sparql is a plone product for fetching data from Linked open data servers
+EEA Dexterity Sparql is a plone product for fetching data from Linked open data servers
 (sparql endpoints).
 
 
@@ -133,7 +133,7 @@ Copyright and license
 The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.
 
-The EEA Sparql (the Original Code) is free software;
+The EEA Dexterity Sparql (the Original Code) is free software;
 you can redistribute it and/or modify it under the terms of the GNU
 General Public License as published by the Free Software Foundation;
 either version 2 of the License, or (at your option) any later

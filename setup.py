@@ -1,4 +1,4 @@
-""" EEA Sparql Installer
+""" EEA Dexterity Sparql Installer
 """
 import os
 

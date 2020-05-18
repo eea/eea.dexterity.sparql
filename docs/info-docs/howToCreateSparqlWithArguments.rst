@@ -1,6 +1,6 @@
 How to Create a SPARQL Instance with One or More Arguments
 ==========================================================
-This tutorial assumes that the EEA Sparql product has already been installed.
+This tutorial assumes that the EEA Dexterity Sparql product has already been installed.
 For information about this topic, please check README.rst. The tutorial will,
 however, provide information about how to create and edit a Sparql with no, one
 or multiple arguments.
