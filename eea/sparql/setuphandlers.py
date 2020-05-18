@@ -10,7 +10,7 @@ class HiddenProfiles(object):
         """Hide uninstall profile from site-creation and quickinstaller."""
 
         return [
-            'eea.sparql:uninstall',
+            'eea.dexterity.sparql:uninstall',
         ]
 
 

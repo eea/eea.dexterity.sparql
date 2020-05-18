@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <rolemap>
   <permissions>
-    <permission name="eea.sparql: Add Sparql" acquire="False">
+    <permission name="eea.dexterity.sparql: Add Sparql" acquire="False">
       <role name="Manager" />
       <role name="Contributor" />
     </permission>

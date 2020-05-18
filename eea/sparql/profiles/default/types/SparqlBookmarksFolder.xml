@@ -24,11 +24,11 @@
     <element value="SparqlQuery" />
   </property>
   <!-- Schema, class and security -->
-  <property name="add_permission">eea.sparql.bookmarksfolder.add</property>
-  <property name="klass">eea.sparql.content.sparqlbookmarks.SparqlBookmarksFolder</property>
+  <property name="add_permission">eea.dexterity.sparql.bookmarksfolder.add</property>
+  <property name="klass">eea.dexterity.sparql.content.sparqlbookmarks.SparqlBookmarksFolder</property>
   <property name="model_file"></property>
   <property name="model_source"></property>
-  <property name="schema">eea.sparql.interfaces.ISparqlBookmarksFolder</property>
+  <property name="schema">eea.dexterity.sparql.interfaces.ISparqlBookmarksFolder</property>
 
   <!-- Enabled behaviors -->
   <property name="behaviors" purge="false">

@@ -4,9 +4,9 @@
 import six.moves.BaseHTTPServer
 import threading
 
-import eea.sparql
-from eea.sparql.tests.mock_server import PORT
-from eea.sparql.tests.mock_server import Handler
+import eea.dexterity.sparql
+from eea.dexterity.sparql.tests.mock_server import PORT
+from eea.dexterity.sparql.tests.mock_server import Handler
 
 #
 # Layered testing
@@ -40,8 +40,8 @@ class EEAFixture(PloneSandboxLayer):
     def setUpZope(self, app, configurationContext):
         """ Setup Zope
         """
-        self.loadZCML(package=eea.sparql)
-        installProduct(app, 'eea.sparql')
+        self.loadZCML(package=eea.dexterity.sparql)
+        installProduct(app, 'eea.dexterity.sparql')
         self.server = six.moves.BaseHTTPServer.HTTPServer(("", PORT), Handler)
         self.server_thread = threading.Thread(target=self.server.handle_request)
         self.server_thread.start()
@@ -49,14 +49,14 @@ class EEAFixture(PloneSandboxLayer):
     def tearDownZope(self, app):
         """ Uninstall Zope
         """
-        uninstallProduct(app, 'eea.sparql')
+        uninstallProduct(app, 'eea.dexterity.sparql')
         self.server.server_close()
         self.server_thread.join()
 
     def setUpPloneSite(self, portal):
         """ Setup Plone
         """
-        applyProfile(portal, 'eea.sparql:default')
+        applyProfile(portal, 'eea.dexterity.sparql:default')
 
         # Login as manager
         setRoles(portal, TEST_USER_ID, ['Manager'])

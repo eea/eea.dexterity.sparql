@@ -5,7 +5,7 @@ import json as simplejson
 from zope.component import queryUtility
 
 import sparql
-from eea.sparql.converter import IGuessType
+from eea.dexterity.sparql.converter import IGuessType
 from Products.ZSPARQLMethod import Method
 import six
 
@@ -48,7 +48,7 @@ def text_annotation(text, annotations=()):
     """ Extract text and annotation from given text based on
     annotations dict
 
-    >>> from eea.sparql.converter.sparql2json import text_annotation
+    >>> from eea.dexterity.sparql.converter.sparql2json import text_annotation
     >>> text_annotation('4438868(s)', annotations=[
     ...   {'name': '(s)', 'title': 'Eurostat estimate'},
     ...   {'name': ':', 'title': 'Not available'},
@@ -76,9 +76,9 @@ def sparql2json(data, **kwargs):
     """
     Converts sparql to JSON
 
-        >>> from eea.sparql.converter import sparql2json
-        >>> from eea.sparql.tests import mock_data
-        >>> from eea.sparql.converter.sparql2json import sparql2json
+        >>> from eea.dexterity.sparql.converter import sparql2json
+        >>> from eea.dexterity.sparql.tests import mock_data
+        >>> from eea.dexterity.sparql.converter.sparql2json import sparql2json
         >>> test_data = mock_data.loadSparql()
         >>> data = sparql2json(test_data)
         >>> print (data['items'])

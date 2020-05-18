@@ -3,12 +3,12 @@
   i18n_domain="eea">
 
   <subscriber
-    for="eea.sparql.interfaces.ISparql
+    for="eea.dexterity.sparql.interfaces.ISparql
          zope.lifecycleevent.interfaces.IObjectModifiedEvent"
     handler=".flushRelatedItems" />
 
   <subscriber
-    for="eea.sparql.interfaces.ISparql
+    for="eea.dexterity.sparql.interfaces.ISparql
          zope.lifecycleevent.interfaces.IObjectModifiedEvent"
     handler=".flushBackRefs" />
 

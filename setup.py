@@ -4,7 +4,7 @@ import os
 
 from setuptools import find_packages, setup
 
-NAME = 'eea.sparql'
+NAME = 'eea.dexterity.sparql'
 PATH = NAME.split('.') + ['version.txt']
 VERSION = open(os.path.join(*PATH)).read().strip()
 
@@ -18,21 +18,18 @@ setup(name=NAME,
       classifiers=[
           "Framework :: Zope2",
           "Framework :: Plone",
-          "Framework :: Plone :: 4.0",
-          "Framework :: Plone :: 4.1",
-          "Framework :: Plone :: 4.2",
-          "Framework :: Plone :: 4.3",
+          "Framework :: Plone :: 5.2",
           "Programming Language :: Zope",
           "Programming Language :: Python",
-          "Programming Language :: Python :: 2.7",
+          "Programming Language :: Python :: 3.7",
           "Topic :: Software Development :: Libraries :: Python Modules",
           "License :: OSI Approved :: GNU General Public License (GPL)",
       ],
       keywords='EEA Add-ons Plone Zope',
       author='European Environment Agency: IDM2 A-Team',
       author_email='eea-edw-a-team-alerts@googlegroups.com',
-      download_url="https://pypi.python.org/pypi/eea.sparql",
-      url='https://github.com/collective/eea.sparql',
+      download_url="https://pypi.python.org/pypi/eea.dexterity.sparql",
+      url='https://github.com/collective/eea.dexterity.sparql',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['eea'],
@@ -43,8 +40,6 @@ setup(name=NAME,
           'setuptools',
           'Products.ZSPARQLMethod',
           'collective.z3cform.datagridfield>=1.5.3',
-          # 'Products.DataGridField',
-          # 'eea.versions',
           'plone.api',
           'six',
       ],

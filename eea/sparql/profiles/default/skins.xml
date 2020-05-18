@@ -2,7 +2,7 @@
 <object name="portal_skins" meta_type="Plone Skins Tool">
    <object name="sparql_templates"
      meta_type="Filesystem Directory View"
-     directory="eea.sparql:skins/sparql_templates"/>
+     directory="eea.dexterity.sparql:skins/sparql_templates"/>
 
    <skin-path name="*">
      <layer insert-after="custom" name="sparql_templates"/>

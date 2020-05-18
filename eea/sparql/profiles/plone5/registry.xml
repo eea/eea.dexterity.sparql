@@ -3,33 +3,33 @@
   <records prefix="plone.resources/sparql-view"
            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
     <value key="css">
-      <element>++resource++eea.sparql.css</element>
+      <element>++resource++eea.dexterity.sparql.css</element>
     </value>
-    <value key="js">++resource++eea.sparql.js</value>
+    <value key="js">++resource++eea.dexterity.sparql.js</value>
   </records>
 
   <records prefix="plone.resources/sparql-datasource-view"
            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
     <value key="css">
-      <element>++resource++eea.sparql.datasource.css</element>
+      <element>++resource++eea.dexterity.sparql.datasource.css</element>
     </value>
-    <value key="js">++resource++eea.sparql.datasource.js</value>
+    <value key="js">++resource++eea.dexterity.sparql.datasource.js</value>
   </records>
 
   <records prefix="plone.resources/sparql-edit"
            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
     <value key="css">
-      <element>++resource++eea.sparql.css</element>
+      <element>++resource++eea.dexterity.sparql.css</element>
     </value>
-    <value key="js">++resource++eea.sparql.js</value>
+    <value key="js">++resource++eea.dexterity.sparql.js</value>
   </records>
 
   <records prefix="plone.resources/sparql-datasource-edit"
            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
     <value key="css">
-      <element>++resource++eea.sparql.datasource.css</element>
+      <element>++resource++eea.dexterity.sparql.datasource.css</element>
     </value>
-    <value key="js">++resource++eea.sparql.datasource.js</value>
+    <value key="js">++resource++eea.dexterity.sparql.datasource.js</value>
   </records>
 
   <records prefix="plone.bundles/sparql-view-bundle"

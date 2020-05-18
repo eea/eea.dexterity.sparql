@@ -1,7 +1,7 @@
 <div class="photoAlbumEntry eea-sparql-item">
   <script type="text/javascript" src="++plone++static/components/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="++resource++eea.sparql.js"></script>
-  <script type="text/javascript" src="++resource++eea.sparql.datasource.js"></script>
+  <script type="text/javascript" src="++resource++eea.dexterity.sparql.js"></script>
+  <script type="text/javascript" src="++resource++eea.dexterity.sparql.datasource.js"></script>
   <a tal:define="
       description context/Description|string:;
       title context/pretty_title_or_id|string:;
@@ -31,6 +31,6 @@
     <span class="photoAlbumEntryDescription" tal:content="description">Description</span>
   </a>
 
-  <link rel="stylesheet" href="++resource++eea.sparql.css" type="text/css" />
-  <link rel="stylesheet" href="++resource++eea.sparql.datasource.css" type="text/css" />
+  <link rel="stylesheet" href="++resource++eea.dexterity.sparql.css" type="text/css" />
+  <link rel="stylesheet" href="++resource++eea.dexterity.sparql.datasource.css" type="text/css" />
 </div>

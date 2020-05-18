@@ -4,11 +4,11 @@ import logging
 
 from zope.lifecycleevent import IObjectCreatedEvent
 
-from eea.sparql.content.sparqlquery import updateLastWorkingResults
-from eea.sparql.interfaces import ISparqlBookmarksFolder
+from eea.dexterity.sparql.content.sparqlquery import updateLastWorkingResults
+from eea.dexterity.sparql.interfaces import ISparqlBookmarksFolder
 from Products.statusmessages.interfaces import IStatusMessage
 
-logger = logging.getLogger("eea.sparql")
+logger = logging.getLogger("eea.dexterity.sparql")
 
 
 def bookmarksfolder_added(obj, evt):

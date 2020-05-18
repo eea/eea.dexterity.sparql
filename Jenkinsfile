@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-        GIT_NAME = "eea.sparql"
+        GIT_NAME = "eea.dexterity.sparql"
         SONARQUBE_TAGS = "www.eea.europa.eu"
     }
 

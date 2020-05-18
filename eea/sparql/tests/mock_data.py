@@ -1,8 +1,8 @@
 """ Mock data for testing
 """
 
-from eea.sparql.content.sparqlquery import SparqlQuery
-from eea.sparql.tests.base import PORT
+from eea.dexterity.sparql.content.sparqlquery import SparqlQuery
+from eea.dexterity.sparql.tests.base import PORT
 from Products.ZSPARQLMethod.Method import parse_arg_spec, \
                                             map_arg_values, \
                                             run_with_timeout, \

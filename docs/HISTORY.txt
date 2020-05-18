@@ -141,7 +141,7 @@ Changelog
   decrease object size, especially useful in versioning and history diff
   [ichimdav refs #17334]
 * Upgrade step: Within "Plone > Site setup > Add-ons" click on
-  upgrade button available for eea.sparql with www8 service instance
+  upgrade button available for eea.dexterity.sparql with www8 service instance
   [ichimdav refs #17334]
 
 5.1 - (2016-01-19)
@@ -174,7 +174,7 @@ Changelog
 
 4.7 - (2015-11-16)
 ------------------
-* Bug fix: Fixed upgrade step 4400 for eea.sparql to start all async jobs for
+* Bug fix: Fixed upgrade step 4400 for eea.dexterity.sparql to start all async jobs for
   sparal methods
   [szabozo0 refs #30673]
 
@@ -331,8 +331,8 @@ Changelog
 * Feature: added information for contributors
   [ciobabog refs #13892]
 * Upgrade step: Within "Plone > Site setup > Add-ons" click on
-  upgrade button available for eea.sparql.
-* Bug fix: Fixed tests for eea.sparql
+  upgrade button available for eea.dexterity.sparql.
+* Bug fix: Fixed tests for eea.dexterity.sparql
   [szabozo0 refs #9424]
 * Feature: Handling specific annotations for data values
   [voineali refs #9558]
@@ -353,7 +353,7 @@ Changelog
 2.2 - (2013-01-10)
 ------------------
 * Change:  moved the olderVersions to the portalMessage div that displays the
-  old versions link for eea.sparql templates
+  old versions link for eea.dexterity.sparql templates
   [ichimdav #10182]
 
 2.1 - (2012-11-09)
@@ -459,7 +459,7 @@ Changelog
   - Sparql -> one_state_workflow;
   - SparqlBookmarksFolder -> folder_workflow define the state mapping as you prefer.
 * Upgrade step: Within "Plone > Site setup > Add-ons" click on
-  upgrade button available for eea.sparql
+  upgrade button available for eea.dexterity.sparql
   [voineali #4968]
 * Feature: Added a table preview for sparql objects when used togheter with
   eea.relations and eea.facetednavigation

@@ -13,10 +13,10 @@ import DateTime
 import pickle as cPickle
 from AccessControl import ClassSecurityInfo
 from AccessControl.Permissions import view
-from eea.sparql.cache import cacheSparqlKey, ramcache, cacheSparqlMethodKey
-from eea.sparql.converter.sparql2json import sparql2json
-from eea.sparql.events import SparqlBookmarksFolderAdded
-from eea.sparql.interfaces import ISparqlQuery
+from eea.dexterity.sparql.cache import cacheSparqlKey, ramcache, cacheSparqlMethodKey
+from eea.dexterity.sparql.converter.sparql2json import sparql2json
+from eea.dexterity.sparql.events import SparqlBookmarksFolderAdded
+from eea.dexterity.sparql.interfaces import ISparqlQuery
 from plone import namedfile
 from plone.dexterity.content import Container, DexterityContent
 from plone.folder.ordered import CMFOrderedBTreeFolderBase
@@ -30,7 +30,7 @@ from Products.ZSPARQLMethod.Method import (QueryTimeout, ZSPARQLMethod,
                                            run_with_timeout)
 
 
-logger = logging.getLogger("eea.sparql")
+logger = logging.getLogger("eea.dexterity.sparql")
 
 RESULTS_TYPES = {
     'xml': "application/sparql-results+xml",
@@ -77,7 +77,7 @@ class SparqlQuery(Container, ZSPARQLMethod):
 
         return self.sparql_query
 
-    @ramcache(cacheSparqlKey, dependencies=['eea.sparql'])
+    @ramcache(cacheSparqlKey, dependencies=['eea.dexterity.sparql'])
     @security.public
     def execute_query(self, args=None):
         """execute query"""
@@ -100,7 +100,7 @@ class SparqlQuery(Container, ZSPARQLMethod):
         except Exception:
             self.timeout = 10
 
-    @ramcache(cacheSparqlMethodKey, dependencies=['eea.sparql'])
+    @ramcache(cacheSparqlMethodKey, dependencies=['eea.dexterity.sparql'])
     def _getCachedSparqlResults(self):
         """
         :return: Cached Sparql results

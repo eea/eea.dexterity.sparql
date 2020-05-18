@@ -9,7 +9,7 @@ Where should I start?
 ---------------------
 Within your working Folder add a new Sparql (Add new -> Sparql)
 
-.. image:: images/eea.sparql.addnew.png
+.. image:: images/eea.dexterity.sparql.addnew.png
 
 The main fields to edit in the Default tab are:
 
@@ -41,13 +41,13 @@ fields:
 * Query
 * Refresh the results
 
-.. image:: images/eea.sparql.noarguments.png
+.. image:: images/eea.dexterity.sparql.noarguments.png
 
 Adding arguments to a SPARQL object
 -----------------------------------
 Arguments are added to the Sparql from the "add new argument" button.
 
-.. image:: images/eea.sparql.addnewargument.png
+.. image:: images/eea.dexterity.sparql.addnewargument.png
 
 This will
 add a new input: the argument. The argument has two fields:
@@ -55,7 +55,7 @@ add a new input: the argument. The argument has two fields:
 * name:type
 * query
 
-.. image:: images/eea.sparql.arguments.png
+.. image:: images/eea.dexterity.sparql.arguments.png
 
 1. Argument name:type
 +++++++++++++++++++++
@@ -81,7 +81,7 @@ Therefore, if the user wants the argument to be a string named "text" he will
 fill in with the value: ``text:string`` and if he needs a URI named "myURI" he
 will fill in with ``myURI:iri``.
 
-.. image:: images/eea.sparql.witharguments.png
+.. image:: images/eea.dexterity.sparql.witharguments.png
 
 The original query should be changed when arguments are added. Arguments are
 identified in the query by the prefix "$" so the argument defined like
@@ -89,7 +89,7 @@ identified in the query by the prefix "$" so the argument defined like
 real values only when the user choses a value for it and the "Execute" button
 is pushed.
 
-.. image:: images/eea.sparql.replacearguments.png
+.. image:: images/eea.dexterity.sparql.replacearguments.png
 
 2. Argument query
 +++++++++++++++++
@@ -121,6 +121,6 @@ will have to fill in with values like:
 By pushing the "Test and preview query" button he will be able to see the
 query's output with the defined argument values.
 
-.. image:: images/eea.sparql.testquerywithargs.png
+.. image:: images/eea.dexterity.sparql.testquerywithargs.png
 
 

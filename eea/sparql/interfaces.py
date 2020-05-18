@@ -6,7 +6,7 @@ from zope.component.interfaces import IObjectEvent
 from zope.interface import Interface
 
 from collective.z3cform.datagridfield import DictRow
-from eea.sparql import sparqlMessageFactory as _
+from eea.dexterity.sparql import sparqlMessageFactory as _
 
 from plone.autoform import directives
 from plone.namedfile.field import NamedBlobFile
@@ -30,7 +30,7 @@ class ISparql(Interface):
 
 from zope.interface import Invalid
 from zope.interface import invariant
-from eea.sparql.content.validators import SparqlQueryValidator
+from eea.dexterity.sparql.content.validators import SparqlQueryValidator
 
 
 class ISparqlQuery(model.Schema, ISparql):

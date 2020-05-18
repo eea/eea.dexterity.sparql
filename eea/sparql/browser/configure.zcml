@@ -1,7 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
-    i18n_domain="eea.sparql">
+    i18n_domain="eea.dexterity.sparql">
 
     <browser:page
         for="*"
@@ -12,14 +12,14 @@
         />
 
     <browser:page
-        for="eea.sparql.interfaces.ISparql"
+        for="eea.dexterity.sparql.interfaces.ISparql"
         name="faceted-preview-item"
         template="faceted-preview.pt"
         permission="zope.Public"
         />
 
     <browser:page
-        for="eea.sparql.interfaces.ISparql"
+        for="eea.dexterity.sparql.interfaces.ISparql"
         name="daviz.json"
         class=".sparql.Sparql"
         attribute="json"
@@ -28,7 +28,7 @@
 
     <browser:page
         name="view"
-        for="eea.sparql.interfaces.ISparql"
+        for="eea.dexterity.sparql.interfaces.ISparql"
         class=".sparql.Sparql"
         template="view.pt"
         permission="zope2.View"
@@ -36,7 +36,7 @@
 
     <browser:page
         name="view"
-        for="eea.sparql.interfaces.ISparqlBookmarksFolder"
+        for="eea.dexterity.sparql.interfaces.ISparqlBookmarksFolder"
         class=".sparql.SparqlBookmarksFolder"
         template="view-bookmarks.pt"
         permission="zope2.View"
@@ -44,7 +44,7 @@
 
     <browser:page
         name="addOrUpdateQueryFromBookmark"
-        for="eea.sparql.interfaces.ISparqlBookmarksFolder"
+        for="eea.dexterity.sparql.interfaces.ISparqlBookmarksFolder"
         class=".sparql.SparqlBookmarksFolder"
         attribute="addOrUpdateQuery"
         permission="zope2.View"
@@ -52,7 +52,7 @@
 
     <browser:page
         name="syncQueriesWithBookmarks"
-        for="eea.sparql.interfaces.ISparqlBookmarksFolder"
+        for="eea.dexterity.sparql.interfaces.ISparqlBookmarksFolder"
         class=".sparql.SparqlBookmarksFolder"
         attribute="syncQueries"
         permission="zope2.View"
@@ -60,7 +60,7 @@
 
     <browser:page
         name="download.exhibit"
-        for="eea.sparql.interfaces.ISparql"
+        for="eea.dexterity.sparql.interfaces.ISparql"
         class=".sparql.Sparql"
         permission="zope2.View"
         attribute="sparql2exhibit"
@@ -68,7 +68,7 @@
 
     <browser:page
         name="download.table"
-        for="eea.sparql.interfaces.ISparql"
+        for="eea.dexterity.sparql.interfaces.ISparql"
         class=".sparql.Sparql"
         permission="zope2.View"
         attribute="sparql2html"
@@ -76,7 +76,7 @@
 
     <browser:page
         name="download.tsv"
-        for="eea.sparql.interfaces.ISparql"
+        for="eea.dexterity.sparql.interfaces.ISparql"
         class=".sparql.Sparql"
         permission="zope2.View"
         attribute="sparql2tsv"
@@ -84,7 +84,7 @@
 
     <browser:page
         name="download.csv"
-        for="eea.sparql.interfaces.ISparql"
+        for="eea.dexterity.sparql.interfaces.ISparql"
         class=".sparql.Sparql"
         permission="zope2.View"
         attribute="sparql2csv"
@@ -92,7 +92,7 @@
 
     <browser:page
         name="download.json"
-        for="eea.sparql.interfaces.ISparql"
+        for="eea.dexterity.sparql.interfaces.ISparql"
         class=".sparql.Sparql"
         permission="zope2.View"
         attribute="sparql2json"
@@ -100,7 +100,7 @@
 
     <browser:page
         name="download.xml"
-        for="eea.sparql.interfaces.ISparql"
+        for="eea.dexterity.sparql.interfaces.ISparql"
         class=".sparql.Sparql"
         permission="zope2.View"
         attribute="sparql2xml"
@@ -108,7 +108,7 @@
 
     <browser:page
         name="download.schema.xml"
-        for="eea.sparql.interfaces.ISparql"
+        for="eea.dexterity.sparql.interfaces.ISparql"
         class=".sparql.Sparql"
         permission="zope2.View"
         attribute="sparql2xmlWithSchema"
@@ -116,34 +116,34 @@
 
     <browser:page
         name="sparql.preview"
-        for="eea.sparql.interfaces.ISparql"
+        for="eea.dexterity.sparql.interfaces.ISparql"
         class=".sparql.Sparql"
         permission="zope2.View"
         template="table-preview.pt"
         />
 
     <browser:resource
-        name="eea.sparql.css"
+        name="eea.dexterity.sparql.css"
         file="css/view.css"
     />
 
     <browser:resource
-        name="eea.sparql.js"
+        name="eea.dexterity.sparql.js"
         file="js/view.js"
     />
 
     <browser:resource
-        name="eea.sparql.datasource.css"
+        name="eea.dexterity.sparql.datasource.css"
         file="css/datasource.css"
     />
 
     <browser:resource
-        name="eea.sparql.datasource.js"
+        name="eea.dexterity.sparql.datasource.js"
         file="js/datasource.js"
     />
 
     <browser:resourceDirectory
-        name="eea.sparql.images"
+        name="eea.dexterity.sparql.images"
         directory="./img" />
 
     <browser:page

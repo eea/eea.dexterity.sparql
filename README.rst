@@ -1,11 +1,11 @@
 ==========
 EEA Sparql
 ==========
-.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.sparql/develop
-  :target: https://ci.eionet.europa.eu/job/eea/job/eea.sparql/job/develop/display/redirect
+.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.dexterity.sparql/develop
+  :target: https://ci.eionet.europa.eu/job/eea/job/eea.dexterity.sparql/job/develop/display/redirect
   :alt: develop
-.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.sparql/master
-  :target: https://ci.eionet.europa.eu/job/eea/job/eea.sparql/job/master/display/redirect
+.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.dexterity.sparql/master
+  :target: https://ci.eionet.europa.eu/job/eea/job/eea.dexterity.sparql/job/master/display/redirect
   :alt: master
 
 EEA Sparql is a plone product for fetching data from Linked open data servers
@@ -41,11 +41,11 @@ The main features are:
 Installation
 ============
 
-To install eea.sparql into the global Python environment (or a workingenv),
+To install eea.dexterity.sparql into the global Python environment (or a workingenv),
 using a traditional Zope 2 instance, you can do this:
 
 * When you're reading this you have probably already run
-  ``easy_install eea.sparql``. Find out how to install setuptools
+  ``easy_install eea.dexterity.sparql``. Find out how to install setuptools
   (and EasyInstall) here:
   http://peak.telecommunity.com/DevCenter/EasyInstall
 
@@ -56,11 +56,11 @@ using a traditional Zope 2 instance, you can do this:
 
   into your Zope instance.
 
-* Create a file called ``eea.sparql-configure.zcml`` in the
+* Create a file called ``eea.dexterity.sparql-configure.zcml`` in the
   ``/path/to/instance/etc/package-includes`` directory.  The file
   should only contain this::
 
-      <include package="eea.sparql" />
+      <include package="eea.dexterity.sparql" />
 
 .. _pythonproducts: http://plone.org/products/pythonproducts
 
@@ -68,16 +68,16 @@ using a traditional Zope 2 instance, you can do this:
 Alternatively, if you are using zc.buildout and the plone.recipe.zope2instance
 recipe to manage your project, you can do this:
 
-* Add ``eea.sparql`` to the list of eggs to install, e.g.::
+* Add ``eea.dexterity.sparql`` to the list of eggs to install, e.g.::
 
     [buildout]
-    eggs = eea.sparql
+    eggs = eea.dexterity.sparql
 
 * Tell the plone.recipe.zope2instance recipe to install a ZCML slug::
 
     [instance]
     recipe = plone.recipe.zope2instance
-    zcml = eea.sparql
+    zcml = eea.dexterity.sparql
 
 
 You can skip the ZCML slug if you are going to explicitly include the package
@@ -123,8 +123,8 @@ Source code
 ===========
 
 Latest source code (Plone 4 compatible):
-- `Plone Collective on Github <https://github.com/collective/eea.sparql>`_
-- `EEA on Github <https://github.com/eea/eea.sparql>`_
+- `Plone Collective on Github <https://github.com/collective/eea.dexterity.sparql>`_
+- `EEA on Github <https://github.com/eea/eea.dexterity.sparql>`_
 
 
 Copyright and license

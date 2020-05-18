@@ -7,8 +7,8 @@ from AccessControl import ClassSecurityInfo
 from AccessControl import getSecurityManager, SpecialUsers
 from AccessControl.SecurityManagement import (newSecurityManager,
                                               setSecurityManager)
-from eea.sparql.content.sparqlquery import generateUniqueId, SparqlQuery
-from eea.sparql.interfaces import ISparqlBookmarksFolder
+from eea.dexterity.sparql.content.sparqlquery import generateUniqueId, SparqlQuery
+from eea.dexterity.sparql.interfaces import ISparqlBookmarksFolder
 from plone import namedfile
 from plone.dexterity.content import Container, DexterityContent
 from plone.folder.ordered import CMFOrderedBTreeFolderBase
@@ -16,7 +16,7 @@ from plone.i18n.normalizer.interfaces import IIDNormalizer
 from zope.component import getUtility
 from zope.interface import implementer
 
-logger = logging.getLogger("eea.sparql")
+logger = logging.getLogger("eea.dexterity.sparql")
 
 
 @implementer(ISparqlBookmarksFolder)

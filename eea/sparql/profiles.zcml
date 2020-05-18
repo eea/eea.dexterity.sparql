@@ -31,14 +31,14 @@
     name="uninstall"
     title="EEA Sparql (uninstall)"
     directory="profiles/uninstall"
-    description="Uninstalls the eea.sparql add-on."
+    description="Uninstalls the eea.dexterity.sparql add-on."
     provides="Products.GenericSetup.interfaces.EXTENSION"
     post_handler=".setuphandlers.uninstall"
     />
 
   <utility
     factory=".setuphandlers.HiddenProfiles"
-    name="eea.sparql-hiddenprofiles"
+    name="eea.dexterity.sparql-hiddenprofiles"
     />
 
 </configure>

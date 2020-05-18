@@ -22,11 +22,11 @@ from Products.ZSPARQLMethod.Method import map_arg_values
 from Products.ZSPARQLMethod.Method import parse_arg_spec
 from Products.ZSPARQLMethod.Method import query_and_get_result
 from Products.ZSPARQLMethod.Method import run_with_timeout
-from eea.sparql.converter.sparql2json import sortProperties
-from eea.sparql.converter.sparql2json import sparql2json
+from eea.dexterity.sparql.converter.sparql2json import sortProperties
+from eea.dexterity.sparql.converter.sparql2json import sparql2json
 import six
 
-logger = logging.getLogger('eea.sparql')
+logger = logging.getLogger('eea.dexterity.sparql')
 
 
 class ExcelTSV(csv.excel):

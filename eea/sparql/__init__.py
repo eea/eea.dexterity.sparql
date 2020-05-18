@@ -2,7 +2,7 @@
 """
 from zope.i18nmessageid import MessageFactory
 
-sparqlMessageFactory = MessageFactory('eea.sparql')
+sparqlMessageFactory = MessageFactory('eea.dexterity.sparql')
 
 
 def initialize(context):

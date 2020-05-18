@@ -1,9 +1,9 @@
 import logging
 
-from eea.sparql.converter.sparql2json import sparql2json
+from eea.dexterity.sparql.converter.sparql2json import sparql2json
 from plone.restapi.services import Service
 
-logger = logging.getLogger('eea.sparql.restapi')
+logger = logging.getLogger('eea.dexterity.sparql.restapi')
 
 
 class SparqlQueryGET(Service):

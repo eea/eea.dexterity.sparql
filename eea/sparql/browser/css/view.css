@@ -61,7 +61,7 @@ p.sparql-has-result .boolean {
 }
 
 .linkeddata-icon {
-    background: transparent url(/++resource++eea.sparql.images/rdf-icon.gif) no-repeat left center;
+    background: transparent url(/++resource++eea.dexterity.sparql.images/rdf-icon.gif) no-repeat left center;
     position: relative;
     padding:1em 1em 1em 2em;
 }
@@ -137,7 +137,7 @@ p.sparql-has-result .boolean {
 }
 
 #eea-sparql-overlay .close {
-    background-image: url(/++resource++eea.sparql.images/close.png);
+    background-image: url(/++resource++eea.dexterity.sparql.images/close.png);
     position: absolute;
     top: 0;
     left: 0;
