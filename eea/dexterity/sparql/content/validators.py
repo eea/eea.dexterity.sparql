@@ -1,5 +1,6 @@
 """ Custom AT Validators
 """
+import sparql
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 from Products.ZSPARQLMethod.Method import run_with_timeout, interpolate_query
