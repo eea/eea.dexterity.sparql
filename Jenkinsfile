@@ -96,22 +96,22 @@ pipeline {
       }
     }
 
-    stage('Tests') {
-      steps {
-        parallel(
-          "Plone5 & Python3": {
-            node(label: 'docker') {
-              sh '''docker pull eeacms/plone-test:5-python3; docker run -i --rm --name="$BUILD_TAG-plone5py3" -e GIT_BRANCH="$BRANCH_NAME" -e VERSIONS="validate-email=3.0.0rc2" -e ADDONS="$GIT_NAME[test]" -e DEVELOP="src/$GIT_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" eeacms/plone-test:5-python3 -v -vv -s $GIT_NAME'''
-            }
-          },
-          "PloneSaaS": {
-            node(label: 'docker') {
-              sh '''docker pull eeacms/plonesaas-devel; docker run -i --rm --name="$BUILD_TAG-plonesaas" -e GIT_NAME="$GIT_NAME" -e GIT_BRANCH="$BRANCH_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" eeacms/plonesaas-devel /debug.sh bin/test --test-path /plone/instance/src/$GIT_NAME -v -vv -s $GIT_NAME'''
-            }
-          }
-        )
-      }
-    }
+    // stage('Tests') {
+    //   steps {
+    //     parallel(
+    //       "Plone5 & Python3": {
+    //         node(label: 'docker') {
+    //           sh '''docker pull eeacms/plone-test:5-python3; docker run -i --rm --name="$BUILD_TAG-plone5py3" -e GIT_BRANCH="$BRANCH_NAME" -e VERSIONS="validate-email=3.0.0rc2" -e ADDONS="$GIT_NAME[test]" -e DEVELOP="src/$GIT_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" eeacms/plone-test:5-python3 -v -vv -s $GIT_NAME'''
+    //         }
+    //       },
+    //       "PloneSaaS": {
+    //         node(label: 'docker') {
+    //           sh '''docker pull eeacms/plonesaas-devel; docker run -i --rm --name="$BUILD_TAG-plonesaas" -e GIT_NAME="$GIT_NAME" -e GIT_BRANCH="$BRANCH_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" eeacms/plonesaas-devel /debug.sh bin/test --test-path /plone/instance/src/$GIT_NAME -v -vv -s $GIT_NAME'''
+    //         }
+    //       }
+    //     )
+    //   }
+    // }
 
     stage('Report to SonarQube') {
       when {
