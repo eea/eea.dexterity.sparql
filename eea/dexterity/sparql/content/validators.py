@@ -8,6 +8,7 @@ from Products.ZSPARQLMethod.Method import query_and_get_result
 from plone.api.portal import getSite
 from zope.annotation import IAnnotations
 from zope.globalrequest import getRequest
+sparql = __import__('sparqlquery')
 
 
 class SparqlQueryValidator(object):
