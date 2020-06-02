@@ -1,6 +1,6 @@
-==========
+====================
 EEA Dexterity Sparql
-==========
+====================
 .. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.dexterity.sparql/develop
   :target: https://ci.eionet.europa.eu/job/eea/job/eea.dexterity.sparql/job/develop/display/redirect
   :alt: develop

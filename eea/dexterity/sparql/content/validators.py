@@ -1,12 +1,12 @@
 """ Custom AT Validators
 """
+import sparql
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 from Products.ZSPARQLMethod.Method import run_with_timeout, interpolate_query
 from Products.ZSPARQLMethod.Method import query_and_get_result
 from plone.api.portal import getSite
 from zope.annotation import IAnnotations
-from zope.interface import implements
 from zope.globalrequest import getRequest
 
 
