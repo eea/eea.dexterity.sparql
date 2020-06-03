@@ -123,7 +123,6 @@ pipeline {
         node(label: 'swarm') {
           script{
             checkout scm
-            unstash "coverage.xml"
             def scannerHome = tool 'SonarQubeScanner';
             def nodeJS = tool 'NodeJS11';
             withSonarQubeEnv('Sonarqube') {
