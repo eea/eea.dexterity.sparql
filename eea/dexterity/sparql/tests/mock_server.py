@@ -5,8 +5,17 @@ from random import randint
 import six.moves.BaseHTTPServer
 import sys
 import os
+# from eea.dexterity.sparql.tests.base import ThreadedHTTPServer
 
 PORT = randint(17000, 19000)
+
+from socketserver import ThreadingMixIn
+
+
+class ThreadedHTTPServer(ThreadingMixIn, six.moves.BaseHTTPServer.HTTPServer):
+    """Handle requests in a separate thread."""
+    daemon_threads = True
+
 
 class Handler(six.moves.BaseHTTPServer.BaseHTTPRequestHandler):
     """ Mock http request handler"""
@@ -38,5 +47,6 @@ class Handler(six.moves.BaseHTTPServer.BaseHTTPRequestHandler):
         return self.do_POST()
 
 if __name__ == "__main__":
-    httpd = six.moves.BaseHTTPServer.HTTPServer(("", PORT), Handler)
+    httpd = ThreadedHTTPServer(("", PORT), Handler)
+    # httpd = six.moves.BaseHTTPServer.ThreadingHTTPServer(("", PORT), Handler)
     httpd.serve_forever()
