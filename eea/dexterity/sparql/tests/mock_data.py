@@ -28,7 +28,7 @@ def loadSparql():
 
     cooked_query = interpolate_query(sparql.sparql_query(), arg_values)
 
-    query_args = (sparql.endpoint_url.encode(), cooked_query.encode())
+    query_args = (sparql.endpoint_url, cooked_query)
 
     data = run_with_timeout(
                 10,
