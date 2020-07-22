@@ -59,9 +59,11 @@
       rows<tal:block condition="python:'duration' in options"> in
       <span class="number" tal:content="python:'%.3f' % options['duration']" i18n:name="time"/>
       seconds</tal:block>.
+
       <tal:block tal:define="last_query_runtime view/getLastQueryRunTime" tal:condition="last_query_runtime">
         <br />
-        <span tal:replace="python:last_query_runtime.get('comment', '').capitalize()" i18n:name="comments"/>
+        <span tal:condition="python:last_query_runtime.get('comment', '')"
+              tal:replace="python:last_query_runtime.get('comment', '').capitalize()" i18n:name="comments"/>
         on
         <span class="number" tal:content="python:context.toLocalizedTime(last_query_runtime.get('timestamp', 1), long_format=True)" i18n:name="date"/>.
       </tal:block>

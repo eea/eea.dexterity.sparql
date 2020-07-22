@@ -91,11 +91,15 @@ class Sparql(BrowserView):
         rt = getToolByName(self.context, "portal_repository")
         if not rt.isVersionable(self.context):
             return {}
-
         try:
             history = rt.getHistoryMetadata(self.context)
+
+            if type(history) is list:
+                return {}
+
             latest = history.getLength(countPurged=False) - 1
             version = history.retrieve(latest, countPurged=False)
+
             return version.get("metadata", {}).get("sys_metadata", {})
         except Exception as err:
             logger.warn(err)
