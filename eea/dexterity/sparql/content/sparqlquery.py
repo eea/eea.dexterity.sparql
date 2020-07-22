@@ -40,7 +40,7 @@ logger = logging.getLogger("eea.dexterity.sparql")
 RESULTS_TYPES = {
     'xml': "application/sparql-results+xml",
     'xmlschema': "application/x-ms-access-export+xml",
-                 'json': "application/sparql-results+json"
+    'json': "application/sparql-results+json"
 }
 
 
@@ -237,7 +237,11 @@ class SparqlQuery(Container, ZSPARQLMethod):
                     if not cached_result.get('result', {}).get('rows', {}):
                         force_save = True
 
-        pr = getToolByName(self, 'portal_repository')
+        try:
+            pr = getToolByName(self, 'portal_repository')
+        except Exception:
+            pr = None
+
         comment = "query has run - no result changes"
         if force_save:
             self.setSparqlCacheResults(new_result)
@@ -257,19 +261,24 @@ class SparqlQuery(Container, ZSPARQLMethod):
             self.sparql_results = new_sparql_results_str
             comment = "query has run - result changed"
 
-        if self.portal_type in pr.getVersionableContentTypes():	
-            comment = comment.encode('utf')	
-            try:
-                oldSecurityManager = getSecurityManager()	
-                newSecurityManager(None, SpecialUsers.system)	
-                pr.save(obj=self, comment=comment)	
-                setSecurityManager(oldSecurityManager)	
-            except FileTooLargeToVersionError:	
-                commands = view.getCommandSet('plone')	
-                commands.issuePortalMessage(	
-                    """Changes Saved. Versioning for this file	
-                       has been disabled because it is too large.""",	
-                    msgtype="warn")
+        if pr:
+            if self.portal_type in pr.getVersionableContentTypes():	
+                comment = comment.encode('utf')	
+                try:
+                    oldSecurityManager = getSecurityManager()	
+                    newSecurityManager(None, SpecialUsers.system)	
+                    pr.save(obj=self, comment=comment)	
+                    setSecurityManager(oldSecurityManager)	
+                except FileTooLargeToVersionError:	
+                    commands = view.getCommandSet('plone')	
+                    commands.issuePortalMessage(	
+                        """Changes Saved. Versioning for this file	
+                           has been disabled because it is too large.""",	
+                        msgtype="warn")
+        else:
+            request = getRequest()
+            messages = IStatusMessage(request)
+            messages.add(u"Query Saved. %s" % comment, type=u"warn")
 
         if new_result.get('exception', None):
             cached_result['exception'] = new_result['exception']
@@ -357,8 +366,14 @@ def updateOtherCachedFormats(obj, endpoint, query, _type, accept):
         result = new_result['result'].read()
     except Exception:
         result = ""
-        logger.warn(
-            "Unable to read result from query: %s with %s\n %s \n %s",
-            "/".join(obj.getPhysicalPath()), _type, endpoint, query
-        )
+        if obj.getPhysicalPath()[0] is None:
+            logger.warn(
+                "Unable to read result from query: %s with %s\n %s \n %s",
+                obj.title, _type, endpoint, query
+            )
+        else:
+            logger.warn(
+                "Unable to read result from query: %s with %s\n %s \n %s",
+                "/".join(obj.getPhysicalPath()), _type, endpoint, query
+            )
     _attr._setData(cPickle.dumps(result))
