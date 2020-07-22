@@ -36,6 +36,13 @@
     post_handler=".setuphandlers.uninstall"
     />
 
+  <genericsetup:registerProfile
+    name="upgrade11"
+    title="EEA Sparql upgrade profile for v1.1"
+    directory="profiles/upgrades/to_11"
+    description='EEA Sparql upgrade profile for v1.1'
+    provides="Products.GenericSetup.interfaces.EXTENSION" />
+
   <utility
     factory=".setuphandlers.HiddenProfiles"
     name="eea.dexterity.sparql-hiddenprofiles"
