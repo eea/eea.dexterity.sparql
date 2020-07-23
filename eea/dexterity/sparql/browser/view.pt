@@ -23,22 +23,22 @@
      <label i18n:translate="">Formats suitable for human consumption</label>
      <div class="eea-sparql-downloads">
        <a tal:attributes="href string:${context/absolute_url}/download.table${arguments}"
-           tal:content="string:HTML"></a>
+          tal:content="string:HTML"></a>
        <a tal:attributes="href string:${context/absolute_url}/download.csv${arguments}"
-           tal:content="string:CSV"></a>
+          tal:content="string:CSV"></a>
        <a tal:attributes="href string:${context/absolute_url}/download.tsv${arguments}"
-           tal:content="string:TSV"></a>
+          tal:content="string:TSV"></a>
     </div>
     <label i18n:translate="">Formats suitable for machine-to-machine communication</label>
     <div class="eea-sparql-downloads">
        <a tal:attributes="href string:${context/absolute_url}/download.json"
-           tal:content="string:JSON"></a>
+          tal:content="string:JSON"></a>
        <a tal:attributes="href string:${context/absolute_url}/download.exhibit${arguments}"
-           tal:content="string:Exhibit JSON"></a>
+          tal:content="string:Exhibit JSON"></a>
        <a tal:attributes="href string:${context/absolute_url}/download.xml"
-           tal:content="string:XML"></a>
+          tal:content="string:XML"></a>
        <a tal:attributes="href string:${context/absolute_url}/download.schema.xml"
-           i18n:translate="">
+          i18n:translate="">
             XML with Schema
        </a>
     </div>

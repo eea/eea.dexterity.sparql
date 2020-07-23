@@ -288,7 +288,6 @@ class Sparql(BrowserView):
         if not cached_data:
             self.context.last_scheduled_at = DateTime.DateTime()
             self.context._updateOtherCachedFormats(
-                self.context.last_scheduled_at,
                 self.context.endpoint_url,
                 self.context.query)
             api.portal.show_message(
