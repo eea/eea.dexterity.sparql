@@ -125,3 +125,8 @@ class ISparqlBookmarksFolder(ISparqlQuery):
 class ISparqlBookmarksFolderAdded(IObjectEvent):
     """An event signalling that the sparql bookmarks folder was added
     """
+
+
+class IDexteritySparqlMessageLayer(Interface):
+    """eea.dexterity.sparql browser layer.
+    """

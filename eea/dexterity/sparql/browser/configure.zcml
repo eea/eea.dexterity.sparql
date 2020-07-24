@@ -177,4 +177,14 @@
         permission="zope2.View"
         />
 
+    <browser:viewlet
+        name="plone.globalstatusmessage"
+        manager="plone.app.layout.viewlets.interfaces.IGlobalStatusMessage"
+        class=".statusmessage.GlobalStatusMessage"
+        permission="zope2.View"
+        layer="eea.dexterity.sparql.interfaces.IDexteritySparqlMessageLayer"
+        for="eea.dexterity.sparql.interfaces.ISparql"
+        />
+
+
 </configure>
