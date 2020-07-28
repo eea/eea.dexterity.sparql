@@ -12,13 +12,11 @@
       widget=".widget.IPreviewWidget"
       template="widget_input.pt"
       />
-      layer="z3c.form.interfaces.IFormLayer"
 
   <z3c:widgetTemplate
       mode="display"
       widget=".widget.IPreviewWidget"
       template="widget_display.pt"
       />
-      layer="z3c.form.interfaces.IFormLayer"
 
 </configure>

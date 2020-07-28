@@ -89,7 +89,7 @@ function preview_sparql() {
             var sparql_preview = jQuery("<div class='sparql_preview'></div>");
             jQuery(data).appendTo(sparql_preview);
             sparql_preview.dialog({
-                title: "Preview for " + jQuery("#title").prop("value"),
+                title: "Preview for " + jQuery("#form-widgets-IBasic-title").prop("value"),
                 modal: true,
                 width: 'auto',
                 create: function() {
@@ -141,7 +141,7 @@ function check_relations() {
                             'Modifying the query may cause problems in them.' +
                         '</dd>' +
                     '</dl>');
-                jQuery("#sparql-base-edit").prepend(warningMessage);
+                jQuery(".view-name-edit").prepend(warningMessage);
                 jQuery.each(back_rels, function(idx, rel) {
                     var rel_msg = jQuery(
                         '<li><a href="' + rel[1] + '">' + rel[0] + '</a></li>'
