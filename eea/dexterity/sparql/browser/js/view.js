@@ -104,7 +104,7 @@ function preview_sparql() {
 function sparql_setstatic() {
     if (jQuery("#form-widgets-sparql_static input").prop("checked")) {
         jQuery("#form-widgets-endpoint_url").attr("readonly", true);
-        jQuery("#form-widgets-timeout").attr("disabled", true);
+        jQuery("#form-widgets-timeout").attr("readonly", true);
         jQuery("#form-widgets-arg_spec").attr("readonly", true);
         jQuery("#form-widgets-sparql_query").attr("readonly", true);
 
@@ -114,7 +114,7 @@ function sparql_setstatic() {
     }
     else {
         jQuery("#form-widgets-endpoint_url").attr("readonly", false);
-        jQuery("#form-widgets-timeout").attr("disabled", false);
+        jQuery("#form-widgets-timeout").attr("readonly", false);
         jQuery("#form-widgets-arg_spec").attr("readonly", false);
         jQuery("#form-widgets-sparql_query").attr("readonly", false);
         jQuery(".sparql-readonly-field").removeClass("sparql-readonly-field");
