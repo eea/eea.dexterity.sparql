@@ -1,6 +1,5 @@
 <configure
   xmlns="http://namespaces.zope.org/zope"
-  xmlns:browser="http://namespaces.zope.org/browser"
   i18n_domain="eea">
 
   <includeDependencies package="." />
@@ -15,5 +14,6 @@
   <include package=".data" />
   <include package=".restapi" />
   <include package=".upgrades" />
+  <include package=".widget" />
 
 </configure>

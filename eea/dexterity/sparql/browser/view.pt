@@ -146,6 +146,7 @@
             tal:attributes="onclick string:javascript:document.location='${context/absolute_url}/daviz-create-new.html';"/>
     </tal:block>
 
+    <script type="text/javascript" tal:content="string: var portal_url = '${context/portal_url}'; var absolute_url = '${context/absolute_url}'"></script>
 </div>
 </body>
 </html>
