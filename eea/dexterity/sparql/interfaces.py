@@ -63,7 +63,7 @@ class ISparqlQuery(model.Schema, ISparql):
                 )
 
     # directives.mode(sparql_static='hidden')
-    # directives.mode(IEditForm, sparql_static='input') # Display Field on edit
+    directives.mode(IEditForm, sparql_static='input') # Display Field on edit
     sparql_static = schema.Bool(
         title=_(u'Static query'), required=False, default=False,
         description="The data will be fetched only once"
