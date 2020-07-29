@@ -13,10 +13,4 @@
       template="widget_input.pt"
       />
 
-  <z3c:widgetTemplate
-      mode="display"
-      widget=".widget.IPreviewWidget"
-      template="widget_display.pt"
-      />
-
 </configure>
