@@ -49,10 +49,6 @@ setup(name=NAME,
               'plone.app.testing',
               'plone.restapi',
           ],
-          'archetypes': [
-              'Products.Archetypes',
-              'Products.DataGridField',
-          ]
       },
       entry_points="""
       [z3c.autoinclude.plugin]
