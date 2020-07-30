@@ -489,7 +489,7 @@ class QuickPreview(BrowserView):
                          if not x.strip().startswith("#"))
         tmp_arg_spec = self.request.get("arg_spec", "")
         tmp_endpoint = self.request.get("endpoint", "")
-        tmp_timeout = int(self.request.get("timeout", "0"))
+        tmp_timeout = int(self.request.get("timeout", "0").replace(',',''))
 
         arg_spec = parse_arg_spec(tmp_arg_spec)
         missing, arg_values = map_arg_values(arg_spec, self.request.form)

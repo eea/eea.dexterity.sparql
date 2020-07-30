@@ -64,6 +64,7 @@
         .sparql-preview-div {
             background-color:#DDD;
             float:left;
+            width: 100%;
         }
         
         .sparql-preview-label {
