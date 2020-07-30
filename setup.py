@@ -16,10 +16,10 @@ setup(name=NAME,
       open(os.path.join("docs", "HISTORY.txt")).read(),
       # https://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
-          "Framework :: Zope2",
           "Framework :: Plone",
           "Framework :: Plone :: 5.2",
-          "Programming Language :: Zope",
+          "Framework :: Zope",
+          "Framework :: Zope :: 4",
           "Programming Language :: Python",
           "Programming Language :: Python :: 3.7",
           "Topic :: Software Development :: Libraries :: Python Modules",
