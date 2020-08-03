@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<layers>
+    <layer name="sparql.globalstatusmessage"
+           interface="eea.dexterity.sparql.interfaces.IDexteritySparqlMessageLayer" />
+</layers>

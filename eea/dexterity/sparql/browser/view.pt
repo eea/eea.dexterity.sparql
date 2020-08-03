@@ -23,22 +23,22 @@
      <label i18n:translate="">Formats suitable for human consumption</label>
      <div class="eea-sparql-downloads">
        <a tal:attributes="href string:${context/absolute_url}/download.table${arguments}"
-           tal:content="string:HTML"></a>
+          tal:content="string:HTML"></a>
        <a tal:attributes="href string:${context/absolute_url}/download.csv${arguments}"
-           tal:content="string:CSV"></a>
+          tal:content="string:CSV"></a>
        <a tal:attributes="href string:${context/absolute_url}/download.tsv${arguments}"
-           tal:content="string:TSV"></a>
+          tal:content="string:TSV"></a>
     </div>
     <label i18n:translate="">Formats suitable for machine-to-machine communication</label>
     <div class="eea-sparql-downloads">
        <a tal:attributes="href string:${context/absolute_url}/download.json"
-           tal:content="string:JSON"></a>
+          tal:content="string:JSON"></a>
        <a tal:attributes="href string:${context/absolute_url}/download.exhibit${arguments}"
-           tal:content="string:Exhibit JSON"></a>
+          tal:content="string:Exhibit JSON"></a>
        <a tal:attributes="href string:${context/absolute_url}/download.xml"
-           tal:content="string:XML"></a>
+          tal:content="string:XML"></a>
        <a tal:attributes="href string:${context/absolute_url}/download.schema.xml"
-           i18n:translate="">
+          i18n:translate="">
             XML with Schema
        </a>
     </div>
@@ -59,9 +59,11 @@
       rows<tal:block condition="python:'duration' in options"> in
       <span class="number" tal:content="python:'%.3f' % options['duration']" i18n:name="time"/>
       seconds</tal:block>.
+
       <tal:block tal:define="last_query_runtime view/getLastQueryRunTime" tal:condition="last_query_runtime">
         <br />
-        <span tal:replace="python:last_query_runtime.get('comment', '').capitalize()" i18n:name="comments"/>
+        <span tal:condition="python:last_query_runtime.get('comment', '')"
+              tal:replace="python:last_query_runtime.get('comment', '').capitalize()" i18n:name="comments"/>
         on
         <span class="number" tal:content="python:context.toLocalizedTime(last_query_runtime.get('timestamp', 1), long_format=True)" i18n:name="date"/>.
       </tal:block>
@@ -144,6 +146,7 @@
             tal:attributes="onclick string:javascript:document.location='${context/absolute_url}/daviz-create-new.html';"/>
     </tal:block>
 
+    <script type="text/javascript" tal:content="string: var portal_url = '${context/portal_url}'; var absolute_url = '${context/absolute_url}'"></script>
 </div>
 </body>
 </html>

@@ -12,6 +12,10 @@ from ZODB.POSException import POSKeyError
 import DateTime
 import pickle as cPickle
 from AccessControl import ClassSecurityInfo
+from AccessControl import SpecialUsers
+from AccessControl import getSecurityManager
+from AccessControl.SecurityManagement import newSecurityManager
+from AccessControl.SecurityManagement import setSecurityManager
 from AccessControl.Permissions import view
 from eea.dexterity.sparql.cache import cacheSparqlKey, ramcache, cacheSparqlMethodKey
 from eea.dexterity.sparql.converter.sparql2json import sparql2json
@@ -21,6 +25,7 @@ from plone import namedfile
 from plone.dexterity.content import Container, DexterityContent
 from plone.folder.ordered import CMFOrderedBTreeFolderBase
 from Products.CMFCore.utils import getToolByName
+from Products.CMFEditions.interfaces.IModifier import FileTooLargeToVersionError
 from Products.statusmessages.interfaces import IStatusMessage
 from Products.ZSPARQLMethod.Method import (QueryTimeout, ZSPARQLMethod,
                                            interpolate_query, map_arg_values,
@@ -35,7 +40,7 @@ logger = logging.getLogger("eea.dexterity.sparql")
 RESULTS_TYPES = {
     'xml': "application/sparql-results+xml",
     'xmlschema': "application/x-ms-access-export+xml",
-                 'json': "application/sparql-results+json"
+    'json': "application/sparql-results+json"
 }
 
 
@@ -232,6 +237,11 @@ class SparqlQuery(Container, ZSPARQLMethod):
                     if not cached_result.get('result', {}).get('rows', {}):
                         force_save = True
 
+        try:
+            pr = getToolByName(self, 'portal_repository')
+        except Exception:
+            pr = None
+
         comment = "query has run - no result changes"
         if force_save:
             self.setSparqlCacheResults(new_result)
@@ -251,9 +261,24 @@ class SparqlQuery(Container, ZSPARQLMethod):
             self.sparql_results = new_sparql_results_str
             comment = "query has run - result changed"
 
-        request = getRequest()
-        messages = IStatusMessage(request)
-        messages.add(u"Query Saved. %s" % comment, type=u"warn")
+        if pr:
+            if self.portal_type in pr.getVersionableContentTypes():	
+                comment = comment.encode('utf')	
+                try:
+                    oldSecurityManager = getSecurityManager()	
+                    newSecurityManager(None, SpecialUsers.system)	
+                    pr.save(obj=self, comment=comment)	
+                    setSecurityManager(oldSecurityManager)	
+                except FileTooLargeToVersionError:	
+                    commands = view.getCommandSet('plone')	
+                    commands.issuePortalMessage(	
+                        """Changes Saved. Versioning for this file	
+                           has been disabled because it is too large.""",	
+                        msgtype="warn")
+        else:
+            request = getRequest()
+            messages = IStatusMessage(request)
+            messages.add(u"Query Saved. %s" % comment, type=u"warn")
 
         if new_result.get('exception', None):
             cached_result['exception'] = new_result['exception']
@@ -275,8 +300,17 @@ class SparqlQuery(Container, ZSPARQLMethod):
         pr = getToolByName(self, 'portal_repository')
         comment = "Invalidated last working result"
         comment = comment.encode('utf')
-        pr.save(obj=self, comment=comment)
 
+        try:	
+            pr.save(obj=self, comment=comment)	
+        except FileTooLargeToVersionError:	
+            commands = view.getCommandSet('plone')	
+            commands.issuePortalMessage(	
+                """Changes Saved. Versioning for this file	
+                   has been disabled because it is too large.""",	
+                msgtype="warn")	
+
+        # pr.save(obj=self, comment=comment)
         updateLastWorkingResults(self, False)
 
 
@@ -332,8 +366,14 @@ def updateOtherCachedFormats(obj, endpoint, query, _type, accept):
         result = new_result['result'].read()
     except Exception:
         result = ""
-        logger.warn(
-            "Unable to read result from query: %s with %s\n %s \n %s",
-            "/".join(obj.getPhysicalPath()), _type, endpoint, query
-        )
+        if obj.getPhysicalPath()[0] is None:
+            logger.warn(
+                "Unable to read result from query: %s with %s\n %s \n %s",
+                obj.title, _type, endpoint, query
+            )
+        else:
+            logger.warn(
+                "Unable to read result from query: %s with %s\n %s \n %s",
+                "/".join(obj.getPhysicalPath()), _type, endpoint, query
+            )
     _attr._setData(cPickle.dumps(result))

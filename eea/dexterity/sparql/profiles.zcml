@@ -19,15 +19,6 @@
     />
 
   <genericsetup:registerProfile
-    zcml:condition="have plone-5"
-    name="plone5"
-    directory="profiles/plone5"
-    title="EEA Dexterity Sparql Plone5"
-    description="Extension profile for EEA Dexterity Sparql Plone5."
-    provides="Products.GenericSetup.interfaces.EXTENSION"
-    />
-
-  <genericsetup:registerProfile
     name="uninstall"
     title="EEA Dexterity Sparql (uninstall)"
     directory="profiles/uninstall"
@@ -35,6 +26,13 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     post_handler=".setuphandlers.uninstall"
     />
+
+  <genericsetup:registerProfile
+    name="upgrade11"
+    title="EEA Sparql upgrade profile for v1.1"
+    directory="profiles/upgrades/to_11"
+    description='EEA Sparql upgrade profile for v1.1'
+    provides="Products.GenericSetup.interfaces.EXTENSION" />
 
   <utility
     factory=".setuphandlers.HiddenProfiles"

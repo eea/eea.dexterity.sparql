@@ -91,11 +91,15 @@ class Sparql(BrowserView):
         rt = getToolByName(self.context, "portal_repository")
         if not rt.isVersionable(self.context):
             return {}
-
         try:
             history = rt.getHistoryMetadata(self.context)
+
+            if type(history) is list:
+                return {}
+
             latest = history.getLength(countPurged=False) - 1
             version = history.retrieve(latest, countPurged=False)
+
             return version.get("metadata", {}).get("sys_metadata", {})
         except Exception as err:
             logger.warn(err)
@@ -284,7 +288,6 @@ class Sparql(BrowserView):
         if not cached_data:
             self.context.last_scheduled_at = DateTime.DateTime()
             self.context._updateOtherCachedFormats(
-                self.context.last_scheduled_at,
                 self.context.endpoint_url,
                 self.context.query)
             api.portal.show_message(
@@ -387,7 +390,7 @@ class Sparql(BrowserView):
     def relatedItems(self):
         """ Items what are back related to this query
         """
-        return json.dumps([[x.title, x.absolute_url()]
+        return json.dumps([[x.to_object.title, x.to_object.absolute_url()]
                             for x in self.context.relatedItems if x])
 
     def getExportStatus(self):
@@ -486,7 +489,7 @@ class QuickPreview(BrowserView):
                          if not x.strip().startswith("#"))
         tmp_arg_spec = self.request.get("arg_spec", "")
         tmp_endpoint = self.request.get("endpoint", "")
-        tmp_timeout = int(self.request.get("timeout", "0"))
+        tmp_timeout = int(self.request.get("timeout", "0").replace(',',''))
 
         arg_spec = parse_arg_spec(tmp_arg_spec)
         missing, arg_values = map_arg_values(arg_spec, self.request.form)

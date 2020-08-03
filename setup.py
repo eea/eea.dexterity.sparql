@@ -16,10 +16,10 @@ setup(name=NAME,
       open(os.path.join("docs", "HISTORY.txt")).read(),
       # https://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
-          "Framework :: Zope2",
           "Framework :: Plone",
           "Framework :: Plone :: 5.2",
-          "Programming Language :: Zope",
+          "Framework :: Zope",
+          "Framework :: Zope :: 4",
           "Programming Language :: Python",
           "Programming Language :: Python :: 3.7",
           "Topic :: Software Development :: Libraries :: Python Modules",
@@ -40,6 +40,7 @@ setup(name=NAME,
           'setuptools',
           'Products.ZSPARQLMethod',
           'collective.z3cform.datagridfield>=1.5.3',
+          'collective.js.jqueryui>=2.1.6',
           'plone.api',
           'six',
       ],
@@ -48,10 +49,6 @@ setup(name=NAME,
               'plone.app.testing',
               'plone.restapi',
           ],
-          'archetypes': [
-              'Products.Archetypes',
-              'Products.DataGridField',
-          ]
       },
       entry_points="""
       [z3c.autoinclude.plugin]

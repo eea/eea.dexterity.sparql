@@ -36,6 +36,7 @@ from eea.dexterity.sparql.content.validators import SparqlQueryValidator
 class ISparqlQuery(model.Schema, ISparql):
     """ISparql"""
 
+    directives.widget(sparql_query='eea.dexterity.sparql.widget.widget.PreviewFieldWidget')
     sparql_query = schema.Text(
         title=_(u'Sparql query'),
         required=True
@@ -61,8 +62,8 @@ class ISparqlQuery(model.Schema, ISparql):
                     title=u'tablerow', schema=IArgumentsSchema)
                 )
 
-    directives.mode(sparql_static='hidden')
-    # directives.mode(IEditForm, sparql_static='input') # Display Field on edit
+    # directives.mode(sparql_static='hidden')
+    directives.mode(IEditForm, sparql_static='input') # Display Field on edit
     sparql_static = schema.Bool(
         title=_(u'Static query'), required=False, default=False,
         description="The data will be fetched only once"
@@ -124,4 +125,9 @@ class ISparqlBookmarksFolder(ISparqlQuery):
 
 class ISparqlBookmarksFolderAdded(IObjectEvent):
     """An event signalling that the sparql bookmarks folder was added
+    """
+
+
+class IDexteritySparqlMessageLayer(Interface):
+    """eea.dexterity.sparql browser layer.
     """

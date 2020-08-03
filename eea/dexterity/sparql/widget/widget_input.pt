@@ -1,0 +1,96 @@
+<div lang="en"
+  xml:lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  i18n:domain="plone">
+
+  <tal:editor define="context            nocall:view/form/context;
+    here               nocall:context;
+    portal_url         nocall:context/portal_url;
+    portal             portal_url/getPortalObject;
+    id                 view/id;
+    inputname          view/name;
+    inputvalue         view/value;
+    here_url           request/getURL;
+    member             context/portal_membership/getAuthenticatedMember;
+    tabindex           nothing">
+
+    <textarea
+      id="" name="" class="" cols="" rows=""
+      tabindex="" disabled="" readonly="" accesskey=""
+      tal:attributes="id view/id;
+      name view/name;
+      class view/klass;
+      style view/style;
+      title view/title;
+      lang view/lang;
+      onclick view/onclick;
+      ondblclick view/ondblclick;
+      onmousedown view/onmousedown;
+      onmouseup view/onmouseup;
+      onmouseover view/onmouseover;
+      onmousemove view/onmousemove;
+      onmouseout view/onmouseout;
+      onkeypress view/onkeypress;
+      onkeydown view/onkeydown;
+      onkeyup view/onkeyup;
+      disabled view/disabled;
+      tabindex view/tabindex;
+      onfocus view/onfocus;
+      onblur view/onblur;
+      onchange view/onchange;
+      cols view/cols;
+      rows view/rows;
+      readonly view/readonly;
+      accesskey view/accesskey;
+      onselect view/onselect"
+      tal:content="view/value" />
+
+      <div class="sparql-preview-div field">
+          <script type="text/javascript" tal:content="string: var portal_url = '${context/portal_url}'; var absolute_url = '${context/absolute_url}'">
+          </script>
+
+          <label class="sparql-preview-label" i18n:translate="">Test and preview the query</label><br/>
+          <span class="sparql-preview-arguments-helper formHelper" i18n:translate="">This will run the query on the endpoint without saving the query in plone.</span><br/>
+          <input class="sparql-query-results-preview" type="button" value="Test and preview query" i18n:attributes="value"/><br/>
+          <label class="sparql-preview-arguments-label" i18n:translate="">Arguments for preview (optional)</label><br/>
+          <span class="sparql-preview-arguments-helper formHelper" i18n:translate="">Arguments for preview should look like: arg1=value1&amp;arg2=value2</span><br/>
+          <input class="sparql-preview-arguments" type="text"/> <br/>
+      </div>
+
+    <style>
+        .sparql-preview-div {
+            background-color:#DDD;
+            float:left;
+            width: 100%;
+        }
+        
+        .sparql-preview-label {
+            font-size:14px;
+        }
+        
+        .sparql-readonly-field {
+            background-color:#DDD;
+        }
+        
+        .sparql-preview-loading {
+            margin:auto;
+            width:100%;
+            top:40%;
+            text-align:center;
+            position:fixed;
+            z-index:9999;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .sparql-preview-loading > div {
+            background-color:gray;
+            width:300px;
+            margin:auto;
+        }
+    </style>
+  </tal:editor>
+
+</div>

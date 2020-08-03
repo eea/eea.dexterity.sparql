@@ -1,5 +1,4 @@
 import logging
-
 from eea.dexterity.sparql.converter.sparql2json import sparql2json
 from plone.restapi.services import Service
 
